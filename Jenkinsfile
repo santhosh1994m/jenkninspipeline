@@ -17,7 +17,7 @@ pipeline {
         
         stage('chage path') {
             steps {
-                sh 'if [ -d terraformpipeline ]; then sudo rm -rf terraformpipeline; fi'
+                sh 'if [ -d terraformpipeline ]; then  rm -rf terraformpipeline; fi'
             }
         }
         
