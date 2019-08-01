@@ -35,12 +35,12 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh '/usr/local/bin/terraform init ./terraformpipeline'
+                sh 'sudo /usr/local/bin/terraform init ./terraformpipeline'
             }
         }
         stage('terraform plan') {
             steps {
-                sh '/usr/local/bin/terraform plan ./terraformpipeline'
+                sh 'sudo /usr/local/bin/terraform plan ./terraformpipeline'
             }
         }
         stage('terraform ended') {
