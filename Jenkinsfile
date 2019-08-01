@@ -17,13 +17,13 @@ pipeline {
         
         stage('chage path') {
             steps {
-                sh 'if [ -d jenkinspocpipeline ]; then sudo rm -rf jenkinspocpipeline; fi'
+                sh 'if [ -d terraformpipeline ]; then sudo rm -rf terraformpipeline; fi'
             }
         }
         
         stage('git clone') {
             steps {
-                sh 'sudo git clone https://github.com/shibir07/jenkinspocpipeline.git'
+                sh 'sudo git clone https://github.com/santhosh1994m/terraformpipeline.git'
             }
         }
         
@@ -35,12 +35,12 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh 'sudo /usr/local/bin/terraform init ./jenkinspocpipeline'
+                sh 'sudo /usr/local/bin/terraform init ./terraformpipeline'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo /usr/local/bin/terraform plan ./jenkinspocpipeline'
+                sh 'sudo /usr/local/bin/terraform plan ./terraformpipeline'
             }
         }
         stage('terraform ended') {
