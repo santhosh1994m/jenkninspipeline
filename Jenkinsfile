@@ -23,7 +23,7 @@ pipeline {
         
         stage('git clone') {
             steps {
-                sh 'sudo git clone https://github.com/santhosh1994m/terraformpipeline.git'
+                sh 'git clone https://github.com/santhosh1994m/terraformpipeline.git'
             }
         }
         
