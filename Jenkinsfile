@@ -35,7 +35,8 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh 'sudo /usr/local/bin/terraform init'
+                cd DEMO_ECS_S3_Dynamo_Terraform_Code;
+                terraform init
             }
         }
         stage('terraform plan') {
