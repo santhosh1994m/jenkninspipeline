@@ -17,7 +17,7 @@ pipeline {
         
         stage('chage path') {
             steps {
-                sh 'if [ -d main ]; then  rm -rf main; fi'
+                sh 'if [ -d DEMO_ECS_S3_Dynamo_Terraform_Code ]; then  rm -rf DEMO_ECS_S3_Dynamo_Terraform_Code; fi'
             }
         }
         
@@ -35,12 +35,12 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh 'sudo /usr/local/bin/terraform init ./main'
+                sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo /usr/local/bin/terraform plan ./main'
+                sh 'sudo /usr/local/bin/terraform plan ./DEMO_ECS_S3_Dynamo_Terraform_Code'
             }
         }
         stage('terraform ended') {
