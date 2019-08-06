@@ -35,13 +35,13 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                cd DEMO_ECS_S3_Dynamo_Terraform_Code;
-                terraform init
+                
+        sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo /usr/local/bin/terraform plan'
+               sh 'sudo /usr/local/bin/terraform plan ./DEMO_ECS_S3_Dynamo_Terraform_Code'
             }
         }
         stage('terraform ended') {
