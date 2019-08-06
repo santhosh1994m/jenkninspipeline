@@ -23,7 +23,7 @@ pipeline {
         
         stage('git clone') {
             steps {
-                sh 'git clone https://github.com/santhosh1994m/terraformpipeline.git'
+                sh 'git clone https://github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git'
             }
         }
         
