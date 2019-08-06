@@ -35,7 +35,7 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+                sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code -var "AWS_ACCESS_KEY_ID=${"Access Key ID"}" -var "AWS_SECRET_ACCESS_KEY=${"Secret Access Key"}"'
             }
         }
         stage('terraform plan') {
