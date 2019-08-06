@@ -17,7 +17,7 @@ pipeline {
         
         stage('chage path') {
             steps {
-                sh 'if [ -d DEMO_CODE ]; then  rm -rf DEMO_CODE; fi'
+                sh 'if [ -d main ]; then  rm -rf main; fi'
             }
         }
         
@@ -35,12 +35,12 @@ pipeline {
         
         stage('terraform init') {
             steps {
-                sh 'sudo /usr/local/bin/terraform init ./DEMO_CODE'
+                sh 'sudo /usr/local/bin/terraform init ./main'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo /usr/local/bin/terraform plan ./DEMO_CODE'
+                sh 'sudo /usr/local/bin/terraform plan ./main'
             }
         }
         stage('terraform ended') {
