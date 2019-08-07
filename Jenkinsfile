@@ -44,7 +44,7 @@ pipeline {
         stage('terraform validate') {
             steps {
            //     withAWS(region:'us-west-2',credentials:'AWS_credentials'){
-               sh 'if [sudo /usr/local/bin/terraform validate ./DEMO_ECS_S3_Dynamo_Terraform_Code]; then exit; fi'
+               sh 'sudo /usr/local/bin/terraform validate ./DEMO_ECS_S3_Dynamo_Terraform_Code'
            //     }
             }
          }
