@@ -24,7 +24,7 @@ pipeline {
  dir(‘DEMO_ECS_S3_Dynamo_Terraform_Code’)
  {
  sh ‘terraform init’
- sh ‘terraform plan -out=plan’
+ sh ‘terraform plan’
  // sh ‘terraform destroy -auto-approve’
  //sh ‘terraform apply plan’
  }
