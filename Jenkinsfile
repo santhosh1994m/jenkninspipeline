@@ -4,7 +4,7 @@ pipeline {
  stages {
  stage(‘checkout’) {
  steps {
- git branch: ‘master’, url: ‘https://github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git’
+ git branch: ‘master’, url: ‘git@github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git’
  
  }
  }
