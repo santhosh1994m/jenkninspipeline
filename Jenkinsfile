@@ -8,15 +8,15 @@ pipeline {
  
  }
  }
- stage(‘SetTerraform’) {
- steps {
- script {
- def tfHome = tool name: ‘Terraform’
- env.PATH = “${tfHome}:${env.PATH}”
- }
- sh ‘terraform — version’
- }
- }
+ //stage(‘SetTerraform’) {
+ //steps {
+ //cript {
+ //def tfHome = tool name: ‘Terraform’
+ //env.PATH = “${tfHome}:${env.PATH}”
+ //}
+ //sh ‘terraform — version’
+ //}
+ //}
  
  stage(‘Provisioninfrastructure’) {
  
