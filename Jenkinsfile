@@ -37,10 +37,17 @@ pipeline {
             steps {
                //sh 'cd  /var/lib/jenkins/workspace/'ECS - AWS - TERRAFORM'/DEMO_ECS_S3_Dynamo_Terraform_Code && sudo mkdir .terraform &&  sudo  terraform init '
          //       withAWS(region:'us-west-2',credentials:'AWS_credentials'){
-               sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+               sh  'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
          //       }
             }
         }
+        stage('terraform validate') {
+            steps {
+           //     withAWS(region:'us-west-2',credentials:'AWS_credentials'){
+               sh 'if [sudo /usr/local/bin/terraform validate ./DEMO_ECS_S3_Dynamo_Terraform_Code]; then exit; fi'
+           //     }
+            }
+        
         stage('terraform plan') {
             steps {
            //     withAWS(region:'us-west-2',credentials:'AWS_credentials'){
