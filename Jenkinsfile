@@ -23,8 +23,8 @@ pipeline {
  steps {
  dir(‘DEMO_ECS_S3_Dynamo_Terraform_Code’)
  {
- sh ‘terraform init’
- sh ‘terraform plan’
+ sh 'sudo /usr/local/bin/terraform init'
+ sh 'sudo /usr/local/bin/terraform plan'
  // sh ‘terraform destroy -auto-approve’
  //sh ‘terraform apply plan’
  }
