@@ -1,59 +1,41 @@
 pipeline {
-    agent {
-        node {
-            label 'master'
-        }
-    }
-
-
-    stages {
-
-
-        stage('terraform started') {
-            steps {
-                sh 'echo "Started...!" '
-            }
-        }
-        
-        stage('chage path') {
-            steps {
-                sh 'if [ -d DEMO_ECS_S3_Dynamo_Terraform_Code ]; then  rm -rf DEMO_ECS_S3_Dynamo_Terraform_Code; fi'
-            }
-        }
-        
-        stage('git clone') {
-            steps {
-                sh 'git clone https://github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git'
-            }
-        }
-        
-         stage('sleep') {
-            steps {
-                sh 'sleep 10'
-            }
-        }
-        
-        stage('terraform init') {
-            steps {
-                withAWS(region:'us-west-2',credentials:'AWS_credentials'){
-               sh 'sudo /usr/local/bin/terraform init ./DEMO_ECS_S3_Dynamo_Terraform_Code'
-                }
-            }
-        }
-        stage('terraform plan') {
-            steps {
-                withAWS(region:'us-west-2',credentials:'AWS_credentials'){
-               sh 'sudo /usr/local/bin/terraform plan ./DEMO_ECS_S3_Dynamo_Terraform_Code'
-                }
-            }
-        }
-        stage('terraform ended') {
-            steps {
-                sh 'echo "Ended....!!"'
-            }
-        }
-
-
-        
-    }
+ agent any
+ 
+ stages {
+ stage(‘checkout’) {
+ steps {
+ git branch: ‘master’, url: ‘git@github.com:santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git’
+ 
+ }
+ }
+ stage(‘Set Terraform path’) {
+ steps {
+ script {
+ def tfHome = tool name: ‘Terraform’
+ env.PATH = “${tfHome}:${env.PATH}”
+ }
+ sh ‘terraform — version’
+ 
+ 
+ }
+ }
+ 
+ stage(‘Provision infrastructure’) {
+ 
+ steps {
+ dir(‘DEMO_ECS_S3_Dynamo_Terraform_Code’)
+ {
+ sh ‘terraform init’
+ sh ‘terraform plan -out=plan’
+ // sh ‘terraform destroy -auto-approve’
+ //sh ‘terraform apply plan’
+ }
+ 
+ 
+ }
+ }
+ 
+ 
+ 
+ }
 }
