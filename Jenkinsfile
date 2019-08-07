@@ -7,20 +7,20 @@ pipeline {
  git branch: ‘master’, url: ‘github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git’
  
  }
- //}
- //stage(‘Set Terraform’) {
- //steps {
- //script {
- //def tfHome = tool name: ‘Terraform’
- //env.PATH = “${tfHome}:${env.PATH}”
- //}
- //sh ‘terraform — version’
+ }
+ stage(‘SetTerraform’) {
+ steps {
+ script {
+ def tfHome = tool name: ‘Terraform’
+ env.PATH = “${tfHome}:${env.PATH}”
+ }
+ sh ‘terraform — version’
  
  
- //}
- //}
+ }
+ }
  
- stage(‘Provision infrastructure’) {
+ stage(‘Provisioninfrastructure’) {
  
  steps {
  dir(‘DEMO_ECS_S3_Dynamo_Terraform_Code’)
