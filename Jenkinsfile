@@ -23,6 +23,8 @@ pipeline {
  steps {
  dir(‘DEMO_ECS_S3_Dynamo_Terraform_Code’)
  {
+ sh 'git clone https://github.com/santhosh1994m/DEMO_ECS_S3_Dynamo_Terraform_Code.git'
+ sh 'cd DEMO_ECS_S3_Dynamo_Terraform_Code'
  sh 'sudo /usr/local/bin/terraform init'
  sh 'sudo /usr/local/bin/terraform plan'
  // sh ‘terraform destroy -auto-approve’
