@@ -47,6 +47,7 @@ pipeline {
                sh 'if [sudo /usr/local/bin/terraform validate ./DEMO_ECS_S3_Dynamo_Terraform_Code]; then exit; fi'
            //     }
             }
+         }
         
         stage('terraform plan') {
             steps {
