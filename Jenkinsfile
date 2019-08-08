@@ -47,6 +47,12 @@ pipeline {
           
             }
          }
+        stage('terraform workspace'){
+            steps{
+            sh 'sudo /usr/local/bin/terraform workspace select QA ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+            }
+        
+        }
         
         stage('terraform plan') {
             steps {
