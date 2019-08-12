@@ -62,20 +62,20 @@ pipeline {
             }
         }
         
-       stage('terraform apply') {
-            steps {
-          
-             sh 'sudo /usr/local/bin/terraform apply -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
-          
-            }
-        }
-     //  stage('terraform Destroy') {
+      // stage('terraform apply') {
       //      steps {
           
-      //         sh 'sudo /usr/local/bin/terraform destroy -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+      //       sh 'sudo /usr/local/bin/terraform apply -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
           
-     //      }
-   //     }
+      //      }
+      //  }
+       stage('terraform Destroy') {
+            steps {
+          
+              sh 'sudo /usr/local/bin/terraform destroy -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+          
+           }
+       }
         stage('terraform ended') {
             steps {
                 sh 'echo "Ended....!!"'
