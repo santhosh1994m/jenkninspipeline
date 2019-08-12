@@ -67,7 +67,7 @@ pipeline {
           
      //        sh 'sudo /usr/local/bin/terraform apply -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
      //     
-            }
+     //       }
      //   }
       stage('terraform Destroy') {
            steps {
