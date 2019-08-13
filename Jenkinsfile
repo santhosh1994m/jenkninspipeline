@@ -69,13 +69,13 @@ pipeline {
           
        }
      }
-  //     stage('terraform Destroy') {
-    //       steps {
+       stage('terraform Destroy') {
+          steps {
           
-      //      sh 'sudo /usr/local/bin/terraform destroy -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+            sh 'sudo /usr/local/bin/terraform destroy -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
           
-        //  }
-      // }
+        }
+       }
         stage('terraform ended') {
             steps {
                 sh 'echo "Ended....!!"'
