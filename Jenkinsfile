@@ -55,20 +55,20 @@ pipeline {
         }
         
         stage('terraform plan') {
-            steps {
+           steps {
           
                sh 'sudo /usr/local/bin/terraform plan ./DEMO_ECS_S3_Dynamo_Terraform_Code'
           
             }
         }
         
-            stage('terraform apply') {
-          steps {
+     //       stage('terraform apply') {
+    //      steps {
           
-         sh 'sudo /usr/local/bin/terraform apply -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
+     //    sh 'sudo /usr/local/bin/terraform apply -auto-approve ./DEMO_ECS_S3_Dynamo_Terraform_Code'
           
-       }
-     }
+    //   }
+   //  }
        stage('terraform Destroy') {
           steps {
           
